@@ -10,9 +10,18 @@ push-to-releases:
   steps:
     # Push to public docker repo Container Registry (CR)
     - internal/docker-push:
-        tag: $WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT
-        cmd: node /pipeline/source/app.js
-        
+        # tag: $WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT
+        # cmd: node /pipeline/source/app.js
+          entrypoint: bin/get_ip
+          cmd: 0.0.0.0 8080
+          working-dir: $WERCKER_ROOT
+          tag: $WERCKER_GIT_COMMIT
+          ports: "8080"
+          username: $DOCKER_USERNAME
+          password: $DOCKER_PASSWORD
+          repository: $DOCKER_REPO
+          registry: https://iad.ocir.io/v2
+          
 # pipeline to store container on Docker Hub
 push-to-dockerhub:
     steps:
