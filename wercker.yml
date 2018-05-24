@@ -64,12 +64,6 @@ deploy-to-oke:
         insecure-skip-tls-verify: true
         command: apply -f $WERCKER_ROOT/kubernetes-deployment.yml --namespace=$WERCKER_APPLICATION_OWNER_NAME
         
-    - script:
-        name: Prepare Kubernetes files
-        code: |
-          mkdir $WERCKER_OUTPUT_DIR/kubernetes
-          cp kubernetes_*.yml $WERCKER_OUTPUT_DIR/kubernetes
-          
     - kubectl:
         name: deploy to kubernetes
         server: $KUBERNETES_MASTER
