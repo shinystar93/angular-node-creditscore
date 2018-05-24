@@ -15,7 +15,7 @@ push-to-releases:
           entrypoint: bin/get_ip
           cmd: 0.0.0.0 8080
           working-dir: $WERCKER_ROOT
-          tag: "wb"$WERCKER_GIT_COMMIT
+          tag: wb$WERCKER_GIT_COMMIT
           ports: "8080"
           username: $DOCKER_USERNAME
           password: $DOCKER_PASSWORD
