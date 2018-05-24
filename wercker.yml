@@ -68,7 +68,7 @@ deploy-to-oke:
         name: Prepare Kubernetes files
         code: |
           mkdir $WERCKER_OUTPUT_DIR/kubernetes
-          mv kubernetes_*.yml $WERCKER_OUTPUT_DIR/kubernetes
+          cp kubernetes_*.yml $WERCKER_OUTPUT_DIR/kubernetes
           
     - kubectl:
         name: deploy to kubernetes
