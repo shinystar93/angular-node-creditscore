@@ -5,7 +5,7 @@ build:
         name: A step that executes `npm install` command
         code: npm install  
 
-# pipeline to store container on Oracle registry
+# pipeline to store container on OCI registry
 push-to-releases:
   steps:
     # Push to public docker repo Container Registry (OCIR)
