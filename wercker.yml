@@ -8,7 +8,7 @@ build:
 # pipeline to store container on Oracle registry
 push-to-releases:
   steps:
-    # Push to public docker repo Container Registry (CR)
+    # Push to public docker repo Container Registry (OCIR)
     - internal/docker-push:
         # tag: $WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT
         # cmd: node /pipeline/source/app.js
